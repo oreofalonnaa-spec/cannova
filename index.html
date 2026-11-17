@@ -242,6 +242,22 @@ body.shopping .hero,body.shopping .ribbons,body.shopping #origines,body.shopping
 @keyframes czj2{0%{transform:translateY(0) scale(1)}35%{transform:translateY(-26px) scale(1.12,.92)}70%{transform:translateY(0) scale(.94,1.08)}100%{transform:none}}
 @media (max-width:760px){.hero .mx{width:86px}}
 @media (prefers-reduced-motion:reduce){.mx *,.mx svg{animation:none!important}}
+
+/* ===== v2 : cases sans chevauchement des logos ===== */
+.tile{gap:6px;min-height:clamp(210px,38vw,380px)}
+.tile svg,.tile .em{position:static;margin:0 0 auto 0;flex:none;align-self:flex-start;display:block}
+.tile svg{width:clamp(60px,10vw,120px);height:clamp(60px,10vw,120px)}
+.tile.wa svg,.tile.tg svg{width:clamp(56px,9vw,84px);height:clamp(56px,9vw,84px)}
+.tile h3{margin-top:14px;overflow-wrap:anywhere}
+.tile p{margin:6px 0 0}
+/* ===== v2 : adaptation automatique tous écrans ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:clip}
+img,canvas{max-width:100%}
+.bx{max-width:100%}
+@media (min-width:761px) and (max-width:1024px){.pick.four{grid-template-columns:repeat(2,1fr)}.strip .wrap{grid-template-columns:repeat(2,1fr)}.pd,.cart,.boxpv{gap:22px}.boxes{grid-template-columns:repeat(2,1fr)}.hero .mx{width:clamp(90px,14vw,140px)}}
+@media (max-width:760px){.tile{min-height:200px;padding:16px}.tile svg{width:60px;height:60px}.tile.wa svg,.tile.tg svg{width:56px;height:56px}.tile h3,.pick.four .tile h3{font-size:clamp(26px,8vw,40px)}.tile p{font-size:14px}.tile.sp{min-height:150px}h1{font-size:clamp(60px,20vw,150px)}.cta{flex-direction:column;align-items:center;gap:10px}.pd-img{aspect-ratio:auto;min-height:260px}.qty{grid-template-columns:repeat(auto-fit,minmax(84px,1fr))}.boxes{grid-template-columns:1fr 1fr}.boxpv{padding:14px}.recap{padding:14px}}
+@media (max-width:420px){.hero .mx{width:62px}.m1{top:44px}.m2{top:84px}.m3{bottom:300px}.m4{bottom:280px}.wrap{padding:0 12px}.btn{width:100%;justify-content:center}.cta2 .btn{flex:1 1 100%}.promo{font-size:12px}.logo{font-size:22px}.pick,.pick.four{gap:10px}.strip b{font-size:20px}}
+@media (max-width:340px){.pick,.pick.four{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -516,13 +532,14 @@ sc.appendChild(cu);var sd=document.createElement('div');sd.className='shd';sd.st
 var L=[],rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function paint(o){o.cu.style.transform='scale('+o.s+') rotateX('+o.rx+'deg) rotateY('+o.ry+'deg)';
 o.fs.forEach(function(q){var w=(q.a+o.ry)*Math.PI/180;if(Math.cos(w)<-.05)return;q.s.style.opacity=(.55*(1-Math.max(0,Math.cos(w-.5)))).toFixed(2)})}
-function mount(root){(root||document).querySelectorAll('.bx:not([data-m])').forEach(function(el){var k=el.dataset.c,s=parseFloat(el.dataset.s||'1');if(!TH[k])return;el.dataset.m='1';
-var bxm=el.dataset.t==='box';el.style.width=((bxm?300:280)*s)+'px';el.style.height=((bxm?230:250)*s)+'px';var t=bxm?slab(k):tin(k);el.appendChild(t.sc);
-var o={el:el,cu:t.cu,fs:t.fs,s:s,ry:-30+Math.random()*40,rx:-26,d:false,x:0},sc=t.sc;L.push(o);
+function mount(root){(root||document).querySelectorAll('.bx:not([data-m])').forEach(function(el){var k=el.dataset.c,s=parseFloat(el.dataset.s||'1'),s0=s;if(!TH[k])return;el.dataset.m='1';
+var bxm=el.dataset.t==='box',pw=(el.parentElement&&el.parentElement.clientWidth)||320;s=Math.min(s,pw/(bxm?300:280));el.style.width=((bxm?300:280)*s)+'px';el.style.height=((bxm?230:250)*s)+'px';var t=bxm?slab(k):tin(k);el.appendChild(t.sc);
+var o={el:el,cu:t.cu,fs:t.fs,s:s,s0:s0,ry:-30+Math.random()*40,rx:-26,d:false,x:0},sc=t.sc;L.push(o);
 sc.addEventListener('pointerdown',function(e){o.d=true;o.x=e.clientX;try{sc.setPointerCapture(e.pointerId)}catch(z){}sc.style.cursor='grabbing'});
 sc.addEventListener('pointermove',function(e){if(o.d){o.ry+=(e.clientX-o.x)*.6;o.x=e.clientX}});
 function up(){o.d=false;sc.style.cursor='grab'}sc.addEventListener('pointerup',up);sc.addEventListener('pointercancel',up);paint(o)})}
 function tick(){L=L.filter(function(o){return o.el.isConnected});L.forEach(function(o){if(!o.d&&!rm)o.ry+=.4;paint(o)});requestAnimationFrame(tick)}
+addEventListener('resize',function(){L.forEach(function(o){var bx=o.el.dataset.t==='box',pw=(o.el.parentElement&&o.el.parentElement.clientWidth)||320,ss=Math.min(o.s0,pw/(bx?300:280));o.s=ss;o.el.style.width=((bx?300:280)*ss)+'px';o.el.style.height=((bx?230:250)*ss)+'px'})});
 window.CBX={art:function(k){return TH[k].top()},mount:mount,names:{usa:'Cali',maroc:'Atlas',venezuela:'Angel',colombie:'Muzo'}};
 mount(document);tick();
 var SO=function(n){return `<filter id='so${n}' x='-12%' y='-12%' width='124%' height='124%'><feMorphology in='SourceAlpha' operator='dilate' radius='5' result='d'/><feFlood flood-color='#fff'/><feComposite in2='d' operator='in' result='o'/><feMerge><feMergeNode in='o'/><feMergeNode in='SourceGraphic'/></feMerge></filter>`},
@@ -544,11 +561,13 @@ mxs.forEach(function(m){m.addEventListener('click',function(){m.classList.remove
 (function(){
 var C={fleurs:'Fleurs',resine:'Résine'},P={usa:'USA',maroc:'Maroc',venezuela:'Venezuela',colombie:'Colombie'};
 var shop=document.getElementById('shop'),vc=document.getElementById('v-cat'),vp=document.getElementById('v-pays'),vg=document.getElementById('v-cat2'),cr=document.getElementById('crumbs');
-var IMG={card:'images/cali-gelato-carte.jpg',detail:'images/cali-gelato-detail.jpg'},cart=0;
-var CAT={'fleurs-usa':[{slug:'cali-gelato',name:'Cali Gelato CBD',img:IMG.card,img2:IMG.detail,desc:'À partir de 29,99 €',info:[['Dominance','Indica 50 % / Sativa 50 %'],['Taille des fleurs','Grande taille, jusqu’à 6 cm'],['Saveurs','Fruitées, sucrées, boisées'],['Type de culture','Intérieur, hydroponie']],prices:[[3,29.99],[10,84.99],[25,189.99]]}]};/* clé 'fleurs-maroc' : [{name:'',desc:''}] à remplir avec les vrais produits */
+var PH='data:image/svg+xml,'+encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='#0c2a2a'/><g fill='none' stroke='#c6ff3d' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'><path d='M200 300V190M200 190C170 170 150 130 200 80C250 130 230 170 200 190M200 230C160 220 120 190 110 150C150 150 185 180 200 230M200 230C240 220 280 190 290 150C250 150 215 180 200 230'/></g><text x='200' y='350' fill='#eefcf6' font-family='Arial' font-size='22' text-anchor='middle'>Photo à venir</text></svg>");
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f='1';t.src=PH}},true);
+var cart=0;
+var CAT={'fleurs-usa':[{slug:'cali-gelato',name:'Cali Gelato CBD',desc:'À partir de 29,99 €',info:[['Dominance','Indica 50 % / Sativa 50 %'],['Taille des fleurs','Grande taille, jusqu’à 6 cm'],['Saveurs','Fruitées, sucrées, boisées'],['Type de culture','Intérieur, hydroponie']],prices:[[3,29.99],[10,84.99],[25,189.99]]}]};/* clé 'fleurs-maroc' : [{name:'',desc:''}] à remplir avec les vrais produits */
 function tiles(c){return Object.keys(P).map(function(k){return '<a class="tile" href="#'+c+'-'+k+'"><h3 class="d">'+P[k]+'</h3><p>Voir le catalogue '+C[c].toLowerCase()+'</p></a>'}).join('')}
 function show(v){[vc,vp,vg,document.getElementById('v-prod'),document.getElementById('v-cart')].forEach(function(x){x.hidden=x!==v})}
-var cartItems=[],addr={},TEAM={wa:'33646595261',tg:'CANNIVC'};/* WhatsApp : numéro international sans + (ex. 33612345678) ; Telegram : pseudo sans @ */
+var cartItems=[],addr={},TEAM={wa:'33646595261',tg:'cannovc'};/* WhatsApp : numéro international sans + (ex. 33612345678) ; Telegram : pseudo sans @ */
 try{cartItems=JSON.parse(sessionStorage.getItem('cn_cart')||'[]')}catch(e){}
 try{addr=JSON.parse(sessionStorage.getItem('cn_addr')||'{}')}catch(e){}
 function save(){try{sessionStorage.setItem('cn_cart',JSON.stringify(cartItems))}catch(e){}}
@@ -582,16 +601,16 @@ function dial(){if(!tel.value||/^\+\d{1,3}\s?$/.test(tel.value))tel.value=(DIAL[
 dial();co.onchange=function(){if(/^\+\d{1,3}\s?$/.test(tel.value))tel.value='';dial()};
 f.onsubmit=function(e){e.preventDefault();var d=new FormData(f);addr={name:d.get('name'),tel:d.get('tel'),street:d.get('street'),zip:d.get('zip'),city:d.get('city'),country:d.get('country'),note:d.get('note')};try{sessionStorage.setItem('cn_addr',JSON.stringify(addr))}catch(z){}location.hash='finaliser'};
 show(v);crumbs([['Boutique','#boutique'],['Panier','#panier'],['Livraison']])}
-function specialView(){var v=document.getElementById('v-cart');v.onclick=null;var msg='J’aimerais faire une demande spéciale.',wa='https://wa.me/'+TEAM.wa+'?text='+encodeURIComponent(msg),tg='https://t.me/'+TEAM.tg+'?text='+encodeURIComponent(msg);
-v.innerHTML=`<h2 class='d'>Demande spéciale</h2><p style='max-width:620px;font-size:18px'>Tu ne trouves pas ce que tu cherches ? Écris directement à notre équipe, dans l’application de ton choix.</p><div class='pick'><a class='tile wa' href='${wa}' target='_blank' rel='noopener'>${WAI}<h3 class='d'>WhatsApp</h3><p>Le message est déjà écrit : il te suffit de l’envoyer</p></a><a class='tile tg' id='stg' href='${tg}' target='_blank' rel='noopener'>${TGI}<h3 class='d'>Telegram</h3><p>Le message est copié : colle-le dans la conversation</p></a></div>`;
-document.getElementById('stg').onclick=function(){try{navigator.clipboard.writeText(msg)}catch(z){}};
+function specialView(){var v=document.getElementById('v-cart');v.onclick=null;var msg='J’aimerais faire une demande spéciale.',wa='https://wa.me/'+TEAM.wa+'?text='+encodeURIComponent(msg),tg='https://t.me/'+TEAM.tg;
+v.innerHTML=`<h2 class='d'>Demande spéciale</h2><p style='max-width:620px;font-size:18px'>Tu ne trouves pas ce que tu cherches ? Écris directement à notre équipe, dans l’application de ton choix.</p><div class='pick'><a class='tile wa' href='${wa}' target='_blank' rel='noopener'>${WAI}<h3 class='d'>WhatsApp</h3><p>Le message est déjà écrit : il te suffit de l’envoyer</p></a><a class='tile tg' id='stg' href='${tg}' target='_blank' rel='noopener'>${TGI}<h3 class='d'>Telegram</h3><p>Le message est copié : colle-le dans la conversation</p></a></div><p class='note fine' id='sfm'></p>`;
+document.getElementById('stg').onclick=function(){try{navigator.clipboard.writeText(msg)}catch(z){}document.getElementById('sfm').textContent='Message copié : colle-le dans la conversation Telegram.'};
 show(v);crumbs([['Boutique','#boutique'],['Demande spéciale']])}
 function finalView(){if(!cartItems.length){location.hash='panier';return}if(!addr.name){location.hash='commande';return}
-var v=document.getElementById('v-cart'),wa=TEAM.wa?'https://wa.me/'+TEAM.wa+'?text='+encodeURIComponent(summary()):'#finaliser',tg=TEAM.tg?'https://t.me/'+TEAM.tg+'?text='+encodeURIComponent(summary()):'#finaliser';v.onclick=null;
+var v=document.getElementById('v-cart'),wa=TEAM.wa?'https://wa.me/'+TEAM.wa+'?text='+encodeURIComponent(summary()):'#finaliser',tg=TEAM.tg?'https://t.me/'+TEAM.tg:'#finaliser';v.onclick=null;
 v.innerHTML=`<h2 class='d'>Dernière étape</h2><p style='max-width:620px;font-size:18px'>Choisis ton application : tu es mis en contact direct avec notre équipe pour passer ta commande et suivre ton livreur.</p><div class='pick'><a class='tile wa' id='bwa' href='${wa}' target='_blank' rel='noopener'>${WAI}<h3 class='d'>WhatsApp</h3><p>Ouvre la conversation avec ton récapitulatif</p></a><a class='tile tg' id='btg' href='${tg}' target='_blank' rel='noopener'>${TGI}<h3 class='d'>Telegram</h3><p>Ton récapitulatif est copié : colle-le dans la conversation</p></a></div><p class='note fine' id='fm'></p><div class='recap'><p class='lab'>Ta commande</p>${cartItems.map(function(i){return `<div class='ci'><span>${i.name} · ${P[i.c]} · ${i.g} g × ${i.q}</span><b>${fm(i.p*i.q)}</b></div>`}).join('')}<p class='tot'>Total : ${fm(total())}</p><p class='lab'>Livraison</p><p>${esc(addr.name)}<br>${esc(addr.street)}<br>${esc(addr.zip)} ${esc(addr.city)}, ${esc(cname(addr.country))}<br>${esc(addr.tel)}</p><a href='#commande' style='text-decoration:underline'>Modifier l’adresse</a></div>`;
 var fmx=document.getElementById('fm');
 document.getElementById('bwa').onclick=function(e){if(!TEAM.wa){e.preventDefault();fmx.textContent='Le numéro WhatsApp de l’équipe n’est pas encore configuré.'}};
-document.getElementById('btg').onclick=function(e){try{navigator.clipboard.writeText(summary())}catch(z){}if(!TEAM.tg){e.preventDefault();fmx.textContent='Le contact Telegram de l’équipe n’est pas encore configuré.'}};
+document.getElementById('btg').onclick=function(e){if(!TEAM.tg){e.preventDefault();fmx.textContent='Le contact Telegram de l’équipe n’est pas encore configuré.';return}try{navigator.clipboard.writeText(summary())}catch(z){}fmx.textContent='Récapitulatif copié : colle-le dans la conversation Telegram.'};
 show(v);crumbs([['Boutique','#boutique'],['Panier','#panier'],['Livraison','#commande'],['Contact']])}
 function fm(x){return x.toFixed(2).replace('.',',')+' €'}
 function pcard(c,o,p){return '<a class="card prod" href="#'+c+'-'+o+'-'+p.slug+'"><div class="img"><img src="'+p.img+'" alt="'+p.name+'"></div><div class="body"><span class="pill">'+P[o]+'</span><h3 class="d">'+p.name+'</h3><small>'+p.desc+'</small></div></a>'}
@@ -622,8 +641,10 @@ document.getElementById('cat-s').textContent=l.length?'':'Les produits de ce cat
 document.getElementById('cat-g').innerHTML=l.length?l.map(function(p){return pcard(c,o,p)}).join(''):[0,1,2,3].map(function(){return card(c,P[o],'Produit à venir','Taux de CBD et de THC, analyse du lot',true)}).join('');
 crumbs([['Boutique','#boutique'],[C[c],'#'+c],[P[o]]])}
 scrollTo(0,0)}
-CAT['resine-usa']=[{slug:'boom-lunaire',name:'Boom Lunaire',img:'images/boom-lunaire.jpg',img2:'images/boom-lunaire.jpg',desc:'\u00c0 partir de 9,90 \u20ac',text:'Lunaire, c\u2019est le produit le plus spectaculaire du catalogue d\u2019extraits, non pas pour son utilisation, mais pour sa teneur en CBD.',info:[['Cat\u00e9gorie','Extrait'],['Origine','USA']],prices:[[1,9.9],[3,28.5],[5,45.0],[10,85.0],[15,120.0],[25,187.5],[50,350.0],[100,650.0]]}];
-CAT['fleurs-maroc']=[{slug:'liberty-nano-9',name:'Liberty Nano 9',img:'images/liberty-nano-9.jpg',img2:'images/liberty-nano-9.jpg',desc:'\u00c0 partir de 6,00 \u20ac / g',text:'Une fleur au profil aromatique principalement frais, signature de la g\u00e9n\u00e9tique Liberty Haze.',info:[['Cat\u00e9gorie','Fleurs'],['Origine','Maroc']],prices:[[1,9.0],[3,24.0],[5,37.5],[10,70.0],[25,162.5],[50,310.0],[100,600.0]]}];
+CAT['resine-usa']=[{slug:'boom-lunaire',name:'Boom Lunaire',desc:'\u00c0 partir de 9,90 \u20ac',text:'Lunaire, c\u2019est le produit le plus spectaculaire du catalogue d\u2019extraits, non pas pour son utilisation, mais pour sa teneur en CBD.',info:[['Cat\u00e9gorie','Extrait'],['Origine','USA']],prices:[[1,9.9],[3,28.5],[5,45.0],[10,85.0],[15,120.0],[25,187.5],[50,350.0],[100,650.0]]}];
+CAT['fleurs-maroc']=[{slug:'liberty-nano-9',name:'Liberty Nano 9',desc:'\u00c0 partir de 6,00 \u20ac / g',text:'Une fleur au profil aromatique principalement frais, signature de la g\u00e9n\u00e9tique Liberty Haze.',info:[['Cat\u00e9gorie','Fleurs'],['Origine','Maroc']],prices:[[1,9.0],[3,24.0],[5,37.5],[10,70.0],[25,162.5],[50,310.0],[100,600.0]]}];
+/* IMAGES AUTOMATIQUES : pour chaque produit, le site cherche  images/<categorie>-<pays>/<slug>/carte.jpg  et  detail.jpg */
+var EM=window.EMBED||{};Object.keys(CAT).forEach(function(k){CAT[k].forEach(function(p){p.img=p.img||EM[k+'/'+p.slug+'/carte']||'images/'+k+'/'+p.slug+'/carte.jpg';p.img2=p.img2||EM[k+'/'+p.slug+'/detail']||'images/'+k+'/'+p.slug+'/detail.jpg'})});
 var ug=document.getElementById('une-g');if(ug&&CAT['fleurs-usa'])ug.innerHTML=[['fleurs','usa'],['resine','usa']].map(function(a){return (CAT[a[0]+'-'+a[1]]||[]).map(function(p){return pcard(a[0],a[1],p)}).join('')}).join('');
 addEventListener('hashchange',route);upd();route();
 })();

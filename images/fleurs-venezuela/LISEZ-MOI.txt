@@ -1,0 +1,8 @@
+Dossier des photos : fleurs / venezuela
+
+Pour chaque produit, cree un sous-dossier portant le NOM TECHNIQUE (slug) du produit, par exemple :
+  fleurs-venezuela/mon-produit/carte.jpg    (photo de la carte, format carre conseille 800x800)
+  fleurs-venezuela/mon-produit/detail.jpg   (grande photo de la fiche produit)
+
+Le slug doit etre identique a celui ecrit dans index.html (slug:'mon-produit').
+Noms en minuscules, sans accent ni espace. Extension .jpg (pas .JPG ni .jpeg).

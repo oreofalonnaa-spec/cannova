@@ -2,8 +2,9 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="CANNOVA : fleurs et résines CBD de 4 origines (USA, Maroc, Venezuela, Colombie). Livraison en quelques heures selon la zone, emballage discret, gratuite dès 49 €."><title>CANNOVA – Fleurs &amp; résines CBD</title>
+<meta name="description" content="CANNOVA : fleurs et résines CBD des USA. Livraison en quelques heures selon la zone, emballage discret, gratuite dès 49 €."><title>CANNOVA – Fleurs &amp; résines CBD</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -258,6 +259,19 @@ img,canvas{max-width:100%}
 @media (max-width:760px){.tile{min-height:200px;padding:16px}.tile svg{width:60px;height:60px}.tile.wa svg,.tile.tg svg{width:56px;height:56px}.tile h3,.pick.four .tile h3{font-size:clamp(26px,8vw,40px)}.tile p{font-size:14px}.tile.sp{min-height:150px}h1{font-size:clamp(60px,20vw,150px)}.cta{flex-direction:column;align-items:center;gap:10px}.pd-img{aspect-ratio:auto;min-height:260px}.qty{grid-template-columns:repeat(auto-fit,minmax(84px,1fr))}.boxes{grid-template-columns:1fr 1fr}.boxpv{padding:14px}.recap{padding:14px}}
 @media (max-width:420px){.hero .mx{width:62px}.m1{top:44px}.m2{top:84px}.m3{bottom:300px}.m4{bottom:280px}.wrap{padding:0 12px}.btn{width:100%;justify-content:center}.cta2 .btn{flex:1 1 100%}.promo{font-size:12px}.logo{font-size:22px}.pick,.pick.four{gap:10px}.strip b{font-size:20px}}
 @media (max-width:340px){.pick,.pick.four{grid-template-columns:1fr}}
+.boxes.two-box{grid-template-columns:repeat(2,1fr);max-width:760px}
+.styles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
+.sty{background:rgba(4,14,13,.5);color:var(--ink);border:1px solid rgba(255,255,255,.28);border-radius:22px;padding:14px 10px;cursor:pointer;font:inherit;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.sty b{font-size:32px;font-weight:400}.sty small{opacity:.75}
+.sty[aria-pressed='true']{border-color:var(--lime);box-shadow:0 0 28px rgba(198,255,61,.5);background:rgba(198,255,61,.08)}
+.stp{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;min-height:130px;width:100%}
+.sty .bx{display:block}
+.legal h3{margin:22px 0 6px;font-size:22px}.legal p{max-width:760px;opacity:.92;margin:0 0 8px}
+mark{background:rgba(198,255,61,.22);color:var(--ink);padding:0 4px;border-radius:4px}
+@media (max-width:760px){.styles{grid-template-columns:1fr 1fr}}
+.pf{display:flex;gap:10px;margin-top:16px;max-width:520px}
+.pf input{flex:1;min-width:0;background:rgba(255,255,255,.08);color:var(--ink);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:14px 16px;font:500 16px 'Space Grotesk',sans-serif;text-transform:uppercase}
+.pf input:focus{outline:2px solid var(--lime);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -269,7 +283,7 @@ img,canvas{max-width:100%}
 </div>
 
 <header><div class="tape dark promo" role="note" aria-label="Livraison gratuite dès 49 euros, emballage discret"><span>Livraison gratuite dès 49&nbsp;€ + Emballage discret + Livraison gratuite dès 49&nbsp;€ + Emballage discret + Livraison gratuite dès 49&nbsp;€ + Emballage discret + Livraison gratuite dès 49&nbsp;€ + Emballage discret + Livraison gratuite dès 49&nbsp;€ + Emballage discret + Livraison gratuite dès 49&nbsp;€ + Emballage discret + Livraison gratuite dès 49&nbsp;€ + Emballage discret + Livraison gratuite dès 49&nbsp;€ + Emballage discret +&nbsp;</span></div><div class="wrap"><a class="logo d" href="#top">Cannova</a>
-<nav><a href="#boutique">Boutique</a><a href="#origines">Origines</a><a href="#reseau">Distributeurs</a><a href="#livraison">Livraison</a><a href="#boites">Boîtes</a></nav>
+<nav><a href="#boutique">Boutique</a><a href="#reseau">Distributeurs</a><a href="#livraison">Livraison</a><a href="#boites">Boîtes</a></nav>
 <a class="btn" href="#panier">Panier (0)</a></div></header>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -288,27 +302,15 @@ img,canvas{max-width:100%}
     <span class="cap a pill">Les meilleures fleurs CBD</span>
     <span class="cap b pill">La résine CBD top qualité</span>
   </div>
-  <p class="sub">Trouve la meilleure qualité sur notre shop. Une sélection directe de 4 origines, livrée en toute discrétion.</p>
+  <p class="sub">Trouve la meilleure qualité sur notre shop. Une sélection directe des USA, livrée en toute discrétion.</p>
   <div class="cta"><a class="btn" href="#boutique">Découvrir la sélection →</a></div>
   <div class="scrollcue" aria-hidden="true">Descends ↓</div>
 </div>
 
 <div class="ribbons" aria-hidden="true">
-  <div class="tape r1 d"><span>USA + Maroc + Venezuela + Colombie + USA + Maroc + Venezuela + Colombie + USA + Maroc + Venezuela + Colombie + USA + Maroc + Venezuela + Colombie +&nbsp;</span></div>
-  <div class="tape dark r2 d"><span>Sélection directe + 4 origines + Fleurs &amp; résines + CBD premium + Sélection directe + 4 origines + Fleurs &amp; résines + CBD premium +&nbsp;</span></div>
+  <div class="tape r1 d"><span>Sélection USA + Fleurs CBD + Résines CBD + Sélection USA + Fleurs CBD + Résines CBD + Sélection USA + Fleurs CBD + Résines CBD + Sélection USA + Fleurs CBD + Résines CBD + Sélection USA + Fleurs CBD + Résines CBD + Sélection USA + Fleurs CBD + Résines CBD + Sélection USA + Fleurs CBD + Résines CBD + Sélection USA + Fleurs CBD + Résines CBD + &nbsp;</span></div>
+  <div class="tape dark r2 d"><span>Sélection directe + Fleurs &amp; résines + CBD premium + Sélection directe + Fleurs &amp; résines + CBD premium +&nbsp;</span></div>
 </div>
-
-<section id="catalogue-ancien" hidden><div class="wrap">
-  <h2 class="d">La sélection</h2>
-  <div class="chips" role="group" aria-label="Filtrer par origine">
-    <button class="chip" aria-pressed="true" data-o="all">Toutes</button>
-    <button class="chip" aria-pressed="false" data-o="usa">USA</button>
-    <button class="chip" aria-pressed="false" data-o="maroc">Maroc</button>
-    <button class="chip" aria-pressed="false" data-o="venezuela">Venezuela</button>
-    <button class="chip" aria-pressed="false" data-o="colombie">Colombie</button>
-  </div>
-  <div class="grid" id="grid"></div>
-</div></section>
 
 <section id="shop" hidden><div class="wrap">
   <nav class="crumbs" id="crumbs" aria-label="Fil d’Ariane"></nav>
@@ -337,23 +339,18 @@ img,canvas{max-width:100%}
 
 <section class="hm" id="une"><div class="wrap"><h2 class="d">À la une</h2><div class="grid" id="une-g"></div></div></section>
 
-<section class="hm" id="fonctionne"><div class="wrap"><h2 class="d">Commander en 3 étapes</h2><div class="steps"><div class="step"><h3 class="d">Choisis</h3><p>Fleurs ou résine, puis ton pays d’origine.</p></div><div class="step"><h3 class="d">Confirme</h3><p>Tu valides ton panier, puis tu finalises avec notre équipe sur WhatsApp ou Telegram.</p></div><div class="step"><h3 class="d">Reçois</h3><p>Livraison en quelques heures, selon ta zone, dans un colis discret.</p></div></div></div></section>
+<section class="hm" id="fonctionne"><div class="wrap"><h2 class="d">Commander en 3 étapes</h2><div class="steps"><div class="step"><h3 class="d">Choisis</h3><p>Fleurs ou résine, puis ton produit.</p></div><div class="step"><h3 class="d">Confirme</h3><p>Tu valides ton panier, puis tu finalises avec notre équipe sur WhatsApp ou Telegram.</p></div><div class="step"><h3 class="d">Reçois</h3><p>Livraison en quelques heures, selon ta zone, dans un colis discret.</p></div></div></div></section>
 
 <section class="hm" id="faq"><div class="wrap faq"><h2 class="d">Questions fréquentes</h2>
 <details><summary>Quels sont les délais de livraison ?</summary><p>Nos coursiers livrent en quelques heures, selon ta zone de livraison. Notre équipe te confirme le délai exact au moment de la commande.</p></details>
 <details><summary>Mon colis est-il discret ?</summary><p>Oui. Ta boîte CANNOVA est glissée dans un colis neutre, sans mention du contenu.</p></details>
 <details><summary>Comment je commande et je paie ?</summary><p>Tu remplis ton panier, tu indiques ton adresse, puis tu finalises directement avec notre équipe sur WhatsApp ou Telegram. Elle te donne les modes de paiement disponibles et le suivi de ton livreur.</p></details>
 <details><summary>La livraison est-elle gratuite ?</summary><p>Oui, dès 49 € de commande.</p></details>
-<details><summary>D’où viennent les produits ?</summary><p>De 4 origines sélectionnées : USA, Maroc, Venezuela et Colombie. Chaque pays a sa propre boîte.</p></details>
+<details><summary>D’où viennent les produits ?</summary><p>Nos produits viennent des USA. Chaque commande arrive dans une boîte collector.</p></details>
 <details><summary>Y a-t-il un âge minimum ?</summary><p>Oui, le site est réservé aux adultes (18 ans et plus).</p></details>
 </div></section>
 
-<section id="origines"><div class="wrap">
-  <h2 class="d">4 origines.<br>Zéro compromis.</h2>
-  <p style="max-width:560px;font-size:18px">Chaque produit indique son pays d’origine, son taux de THC et renvoie vers l’analyse de laboratoire du lot.</p>
-</div></section>
-
-<section id="boites"><div class="wrap"><h2 class="d">Une boîte par pays.</h2><p style="max-width:560px;font-size:18px">Chaque origine arrive dans sa propre boîte collector : pot rond pour les fleurs, boîte plate pour la résine. Attrape-la et fais-la tourner.</p><h3 class="d sub">Fleurs : le pot rond</h3><div class="boxes"><div class="bxw"><div class="bx" data-c="usa" data-s=".85"></div><h3 class="d">Cali</h3><p>USA</p></div><div class="bxw"><div class="bx" data-c="maroc" data-s=".85"></div><h3 class="d">Atlas</h3><p>Maroc</p></div><div class="bxw"><div class="bx" data-c="venezuela" data-s=".85"></div><h3 class="d">Angel</h3><p>Venezuela</p></div><div class="bxw"><div class="bx" data-c="colombie" data-s=".85"></div><h3 class="d">Muzo</h3><p>Colombie</p></div></div><h3 class="d sub">Résine : la boîte plate</h3><div class="boxes"><div class="bxw"><div class="bx" data-c="usa" data-t="box" data-s=".85"></div><h3 class="d">Cali</h3><p>USA</p></div><div class="bxw"><div class="bx" data-c="maroc" data-t="box" data-s=".85"></div><h3 class="d">Atlas</h3><p>Maroc</p></div><div class="bxw"><div class="bx" data-c="venezuela" data-t="box" data-s=".85"></div><h3 class="d">Angel</h3><p>Venezuela</p></div><div class="bxw"><div class="bx" data-c="colombie" data-t="box" data-s=".85"></div><h3 class="d">Muzo</h3><p>Colombie</p></div></div></div></section>
+<section id="boites"><div class="wrap"><h2 class="d">Choisis ta boîte.</h2><p style="max-width:560px;font-size:18px">Quatre styles, chacun avec sa créature. Tu choisis le tien au moment de valider ta commande. Attrape la boîte et fais-la tourner.</p><h3 class="d sub">Fleurs : le pot rond</h3><div class="boxes"><div class="bxw"><div class="bx" data-c="usa" data-s=".85"></div><h3 class="d">Cali</h3><p>Le crâne en flammes</p></div><div class="bxw"><div class="bx" data-c="maroc" data-s=".85"></div><h3 class="d">Atlas</h3><p>Le lion</p></div><div class="bxw"><div class="bx" data-c="venezuela" data-s=".85"></div><h3 class="d">Angel</h3><p>L’aigle et l’orage</p></div><div class="bxw"><div class="bx" data-c="colombie" data-s=".85"></div><h3 class="d">Muzo</h3><p>Le masque d’émeraude</p></div></div><h3 class="d sub">Résine : la boîte plate</h3><div class="boxes"><div class="bxw"><div class="bx" data-c="usa" data-t="box" data-s=".85"></div><h3 class="d">Cali</h3><p>Le crâne en flammes</p></div><div class="bxw"><div class="bx" data-c="maroc" data-t="box" data-s=".85"></div><h3 class="d">Atlas</h3><p>Le lion</p></div><div class="bxw"><div class="bx" data-c="venezuela" data-t="box" data-s=".85"></div><h3 class="d">Angel</h3><p>L’aigle et l’orage</p></div><div class="bxw"><div class="bx" data-c="colombie" data-t="box" data-s=".85"></div><h3 class="d">Muzo</h3><p>Le masque d’émeraude</p></div></div></div></section>
 
 <section id="reseau"><div class="wrap"><div class="two">
   <div><p class="big d">+200</p><p class="kv d">distributeurs<br>en Europe</p></div>
@@ -362,8 +359,8 @@ img,canvas{max-width:100%}
 
 <footer id="contact"><div class="wrap">
   <p class="d">Cannova</p>
-  <p>Réservé aux adultes (18+). Les produits sont vendus dans le respect de la réglementation en vigueur ; le taux de THC est affiché sur chaque fiche. Aucune allégation médicale ou thérapeutique.</p>
-  <p><a href="#">Mentions légales</a> · <a href="#">CGV</a> · <a href="#">Confidentialité</a> · <a href="#">Livraison</a></p>
+  <p>Réservé aux adultes (18+). Produits vendus dans le respect de la réglementation en vigueur. Aucune allégation médicale ou thérapeutique.</p>
+  <p><a href="#mentions">Mentions légales</a> · <a href="#cgv">CGV</a> · <a href="#confidentialite">Confidentialité</a> · <a href="#cgv">Livraison</a></p>
 </div></footer>
 </main>
 
@@ -373,20 +370,14 @@ img,canvas{max-width:100%}
 var gate=document.getElementById('gate');
 try{if(sessionStorage.getItem('age18')==='1')gate.hidden=true}catch(e){}
 document.getElementById('yes').onclick=function(){gate.hidden=true;try{sessionStorage.setItem('age18','1')}catch(e){}};
-var items=[['Fleur Atlas','Fleurs','maroc','Maroc'],['Résine Rif','Résine','maroc','Maroc'],['Fleur Westcoast','Fleurs','usa','USA'],['Résine Cali','Résine','usa','USA'],['Fleur Sierra','Fleurs','colombie','Colombie'],['Fleur Andes','Fleurs','venezuela','Venezuela'],['Résine Caribe','Résine','venezuela','Venezuela'],['Résine Medellín','Résine','colombie','Colombie']];
-var g=document.getElementById('grid')||document.createElement('div');
-items.forEach(function(p){var c=document.createElement('article');c.className='card';c.dataset.o=p[2];
-c.innerHTML='<div class="img"><svg viewBox="-110 -110 220 170" aria-hidden="true"><use href="#leaf"/></svg></div><div class="body"><span class="pill">'+p[3]+'</span><h3 class="d">'+p[0]+'</h3><small>'+p[1]+' CBD · analyse de laboratoire disponible</small></div>';g.appendChild(c)});
-document.querySelectorAll('.chip').forEach(function(b){b.onclick=function(){
-document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
-g.querySelectorAll('.card').forEach(function(c){c.hidden=b.dataset.o!=='all'&&c.dataset.o!==b.dataset.o})}});
+
 })();
 (function(){
 var cv=document.getElementById('bg3d');
 try{
 if(!window.THREE)throw 0;
 var T=THREE,r=new T.WebGLRenderer({canvas:cv,antialias:true});
-r.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+r.setPixelRatio(Math.min(window.devicePixelRatio||1,(navigator.hardwareConcurrency||8)<=4?1.25:2));
 var sc=new T.Scene(),cam=new T.PerspectiveCamera(50,1,.1,60);cam.position.z=10;
 var mq=matchMedia('(prefers-color-scheme: dark)'),rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function theme(){r.setClearColor(new T.Color('#030807'),1)}
@@ -398,7 +389,7 @@ var s=new T.Shape();s.moveTo(0,0);s.bezierCurveTo(-.09,.25,-.09,.6,0,1);s.bezier
 var G=new T.ExtrudeGeometry(s,{depth:.03,bevelEnabled:true,bevelThickness:.012,bevelSize:.012,bevelSegments:1,curveSegments:8});
 var sp=[[0,1],[-32,.9],[32,.9],[-62,.7],[62,.7],[-90,.45],[90,.45]],pal=['#7cff6b','#19e6d2','#9a5bff','#ff4bd8','#c6ff3d','#19e6d2'];
 function rnd(a,b){return a+Math.random()*(b-a)}
-var N=matchMedia('(max-width:760px)').matches?14:24,L=[];
+var N=(matchMedia('(max-width:760px)').matches||(navigator.hardwareConcurrency||8)<=4)?12:24,L=[];
 for(var i=0;i<N;i++){
 var g=new T.Group(),m=new T.MeshStandardMaterial({color:pal[i%pal.length],emissive:pal[i%pal.length],emissiveIntensity:.5,flatShading:true,roughness:.2,metalness:.55});
 sp.forEach(function(p){var me=new T.Mesh(G,m);me.rotation.z=-p[0]*Math.PI/180;me.scale.setScalar(p[1]);g.add(me)});
@@ -421,7 +412,7 @@ col=mix(col,c4,smoothstep(.7,1.,f*q.y*1.9)*(.5+.5*sin(uS*.7+2.)));
 col+=vec3(0.,.3,.26)*smoothstep(.45,.9,fbm(p*1.6-tt*3.+q*2.))*.6;col+=vec3(.5,.9,.2)*pow(f,5.)*.5;col*=1.-.55*length(v-.5);gl_FragColor=vec4(col,1.);}`;
 var pm=new T.Mesh(new T.PlaneGeometry(1,1),new T.ShaderMaterial({uniforms:U,vertexShader:'varying vec2 v;void main(){v=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:FS,depthWrite:false}));
 pm.position.z=-34;pm.renderOrder=-1;pm.frustumCulled=false;cam.add(pm);
-var PN=matchMedia('(max-width:760px)').matches?250:600,pg=new T.BufferGeometry(),pa=new Float32Array(PN*3);
+var PN=(matchMedia('(max-width:760px)').matches||(navigator.hardwareConcurrency||8)<=4)?220:600,pg=new T.BufferGeometry(),pa=new Float32Array(PN*3);
 for(var j=0;j<PN;j++){pa[j*3]=rnd(-14,14);pa[j*3+1]=rnd(-22,8);pa[j*3+2]=rnd(-10,4)}
 pg.setAttribute('position',new T.BufferAttribute(pa,3));
 var cc=document.createElement('canvas');cc.width=cc.height=64;var cx=cc.getContext('2d'),gr=cx.createRadialGradient(32,32,0,32,32,32);gr.addColorStop(0,'rgba(255,255,255,.9)');gr.addColorStop(1,'rgba(255,255,255,0)');cx.fillStyle=gr;cx.fillRect(0,0,64,64);
@@ -572,8 +563,13 @@ try{cartItems=JSON.parse(sessionStorage.getItem('cn_cart')||'[]')}catch(e){}
 try{addr=JSON.parse(sessionStorage.getItem('cn_addr')||'{}')}catch(e){}
 function save(){try{sessionStorage.setItem('cn_cart',JSON.stringify(cartItems))}catch(e){}}
 function count(){return cartItems.reduce(function(a,i){return a+i.q},0)}
-function total(){return cartItems.reduce(function(a,i){return a+i.p*i.q},0)}
-function upd(){var c=document.querySelector('header .btn');if(c)c.textContent='Panier ('+count()+')'}
+function sub(){return cartItems.reduce(function(a,i){return a+i.p*i.q},0)}
+function h53(str,seed){seed=seed||0;var h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(var i=0,ch;i<str.length;i++){ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677)}h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0)}
+var PROMO={'4377657523257203':0.15},code='';window.cnHash=h53;
+try{var c0=cl(sessionStorage.getItem('cn_code'),30).toLowerCase();if(PROMO[h53(c0)])code=c0}catch(e){}
+function rate(){return PROMO[h53(code)]||0}
+function total(){return Math.round(sub()*(1-rate())*100)/100}
+function upd(){clean();var c=document.querySelector('header .btn');if(c)c.textContent='Panier ('+count()+')'}
 function addItem(it){var f=cartItems.filter(function(x){return x.name===it.name&&x.c===it.c&&x.g===it.g})[0];if(f)f.q++;else{it.q=1;cartItems.push(it)}save();upd()}
 function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 var EU=['FR','BE','CH','LU','DE','ES','PT','IT','NL','GB','IE','AT','DK','SE','NO','FI','PL','CZ','HU','RO','GR','HR','SI','SK','BG','EE','LV','LT','MT','CY'],
@@ -581,33 +577,59 @@ DIAL={FR:'+33',BE:'+32',CH:'+41',LU:'+352',DE:'+49',ES:'+34',PT:'+351',IT:'+39',
 TZ={'Europe/Paris':'FR','Europe/Brussels':'BE','Europe/Zurich':'CH','Europe/Luxembourg':'LU','Europe/Berlin':'DE','Europe/Madrid':'ES','Europe/Lisbon':'PT','Europe/Rome':'IT','Europe/Amsterdam':'NL','Europe/London':'GB','Europe/Dublin':'IE','Europe/Vienna':'AT','Europe/Copenhagen':'DK','Europe/Stockholm':'SE','Europe/Oslo':'NO','Europe/Helsinki':'FI','Europe/Warsaw':'PL','Europe/Prague':'CZ','Europe/Budapest':'HU','Europe/Bucharest':'RO','Europe/Athens':'GR'},
 WAI=`<svg viewBox='0 0 48 48' aria-hidden='true'><circle cx='24' cy='24' r='24' fill='#25D366'/><path d='M24 10.5a13.5 13.5 0 0 0-11.6 20.4L10.5 37.5l6.8-1.8A13.5 13.5 0 1 0 24 10.5z' fill='none' stroke='#fff' stroke-width='2.6' stroke-linejoin='round'/><path d='M19 18c-.6 1.2-.3 3 .9 4.9 1.4 2.2 3.300 3.800 5.600 4.500 1.100.3 2-.1 2.500-1.100l-2.300-1.300-.9.800c-1.200-.5-2.500-1.700-3.200-3l.8-.9-1.200-2.300z' fill='#fff'/></svg>`,
 TGI=`<svg viewBox='0 0 48 48' aria-hidden='true'><circle cx='24' cy='24' r='24' fill='#229ED9'/><path d='M11 23.500l24-9.400c1.100-.4 2.100.3 1.700 2l-4.100 19.300c-.3 1.400-1.100 1.700-2.300 1.100l-6.300-4.600-3 2.900c-.3.300-.6.600-1.200.6l.4-6.400 11.700-10.600c.5-.4-.1-.7-.8-.3L16.600 28.500l-6.200-1.900c-1.300-.4-1.300-1.300.6-2.100z' fill='#fff'/></svg>`;
+var lastSub=0;
+function cl(v,n){return String(v==null?'':v).replace(/[\u0000-\u001f\u007f<>]/g,' ').replace(/\s+/g,' ').trim().slice(0,n)}
+if(!Array.isArray(cartItems))cartItems=[];
+addr=(addr&&typeof addr==='object')?addr:{};Object.keys(addr).forEach(function(k){addr[k]=cl(addr[k],200)});
+function clean(){var out=[];cartItems.forEach(function(i){if(!i||typeof i.name!=='string')return;var f=null;for(var key in CAT){CAT[key].forEach(function(p){if(p.name===i.name)f=[p,key]})}if(!f)return;var pr=f[0].prices.filter(function(q){return q[0]===i.g})[0];if(!pr)return;out.push({name:f[0].name,c:'usa',k:f[1].split('-')[0],g:pr[0],p:pr[1],q:Math.max(1,Math.min(20,parseInt(i.q,10)||1))})});cartItems=out.slice(0,20);save()}
+var STY=[['usa','Cali','Le crâne en flammes, rose et violet'],['maroc','Atlas','Le lion, or et vert'],['venezuela','Angel','L’aigle et l’orage, jaune, bleu et rouge'],['colombie','Muzo','Le masque d’émeraude, vert et or']],boxStyle='usa';
+try{var bs0=sessionStorage.getItem('cn_box');if(STY.some(function(x){return x[0]===bs0}))boxStyle=bs0}catch(e){}
+function styleName(){var r=STY.filter(function(x){return x[0]===boxStyle})[0];return r?r[1]:'Cali'}
+function kinds(){var r=cartItems.some(function(i){return i.k==='resine'}),f=cartItems.some(function(i){return i.k!=='resine'});return {f:f||!r,r:r}}
+function boxView(){clean();if(!cartItems.length){location.hash='panier';return}var v=document.getElementById('v-cart'),kd=kinds();v.onclick=null;
+v.innerHTML=`<h2 class='d'>Choisis ta boîte</h2><p style='max-width:600px;font-size:18px'>Ta commande arrive dans une boîte collector. Choisis le style que tu préfères.</p><div class='styles'>${STY.map(function(x){return `<button type='button' class='sty' data-s='${x[0]}' aria-pressed='${x[0]===boxStyle}'><span class='stp'>${kd.f?`<span class='bx' data-c='${x[0]}' data-s='.5'></span>`:''}${kd.r?`<span class='bx' data-c='${x[0]}' data-t='box' data-s='.5'></span>`:''}</span><b class='d'>${x[1]}</b><small>${x[2]}</small></button>`}).join('')}</div><div class='cta2'><a class='btn lime' href='#panier'>← Panier</a><a class='btn' href='#code'>Continuer</a></div>`;
+v.onclick=function(e){var b=e.target.closest('.sty');if(!b)return;boxStyle=b.dataset.s;try{sessionStorage.setItem('cn_box',boxStyle)}catch(z){}v.querySelectorAll('.sty').forEach(function(x){x.setAttribute('aria-pressed',x===b)})};
+show(v);crumbs([['Boutique','#boutique'],['Panier','#panier'],['Boîte']]);CBX.mount(v)}
+var tries=0;
+function promoView(){clean();if(!cartItems.length){location.hash='panier';return}var v=document.getElementById('v-cart');v.onclick=null;
+function page(msg){var r=rate();v.innerHTML=`<h2 class='d'>Un code de réduction ?</h2><p style='max-width:600px;font-size:18px'>${r?'Ton code est appliqué : la réduction est déduite du total de ton panier.':'Si tu as un code, saisis-le pour déduire ta réduction du total de ton panier.'}</p>${r?`<p class='note fine'>Code ${esc(code.toUpperCase())} : −${Math.round(r*100)} %</p><p class='note'>Sous-total : ${fm(sub())}</p>`:''}<p class='tot'>Total : ${fm(total())}</p><div class='cta2'><a class='btn lime' href='#boite'>← Ma boîte</a>${r?`<button type='button' class='btn lime' id='pdel'>Retirer le code</button>`:`<button type='button' class='btn lime' id='py'>Oui, j’ai un code</button>`}<a class='btn' href='#commande'>${r?'Continuer':'Non, je continue'}</a></div><form id='pf' class='pf' hidden><input id='pc' maxlength='30' autocomplete='off' autocapitalize='characters' spellcheck='false' placeholder='Ton code' aria-label='Code de réduction'><button class='btn' type='submit'>Appliquer</button></form><p class='note fine' id='pm' role='status'>${msg||''}</p>`;
+var py=document.getElementById('py'),pf=document.getElementById('pf'),pm=document.getElementById('pm'),pd=document.getElementById('pdel');
+if(py)py.onclick=function(){pf.hidden=false;document.getElementById('pc').focus()};
+if(pd)pd.onclick=function(){code='';try{sessionStorage.removeItem('cn_code')}catch(z){}page()};
+pf.onsubmit=function(e){e.preventDefault();if(tries>=5){pm.textContent='Trop d’essais. Continue sans code.';return}var c=cl(document.getElementById('pc').value,30).toLowerCase();if(c&&PROMO[h53(c)]){code=c;try{sessionStorage.setItem('cn_code',c)}catch(z){}page('Code appliqué !')}else{tries++;pm.textContent='Ce code n’est pas valide.'}}}
+page();show(v);crumbs([['Boutique','#boutique'],['Panier','#panier'],['Code']])}
+var LG={
+mentions:['Mentions légales',`<h3>Éditeur du site</h3><p><mark>[NOM OU DÉNOMINATION SOCIALE]</mark>, <mark>[forme juridique]</mark>, SIRET <mark>[numéro]</mark>, siège social : <mark>[adresse complète]</mark>. N° de TVA : <mark>[numéro ou « non applicable »]</mark>.</p><p>Directeur de la publication : <mark>[nom]</mark>. Contact : <mark>[adresse e-mail]</mark> · WhatsApp +33 6 46 59 52 61 · Telegram @cannovc.</p><h3>Hébergeur</h3><p>Vercel Inc., États-Unis. <mark>[adresse à reprendre sur vercel.com]</mark></p><h3>Accès réservé aux adultes</h3><p>Ce site est réservé aux personnes majeures (18 ans et plus).</p><h3>Nature des produits</h3><p>Les produits proposés ne sont pas des médicaments et ne sont pas destinés à diagnostiquer, traiter, guérir ou prévenir une maladie. Ne pas consommer en cas de grossesse ou d’allaitement. Tenir hors de portée des enfants. En cas de doute ou de traitement en cours, demande l’avis d’un professionnel de santé.</p><h3>Propriété intellectuelle</h3><p>Les textes, images, dessins, personnages et le design du site sont protégés. Toute reproduction sans autorisation est interdite.</p><h3>Responsabilité et liens</h3><p>Le site renvoie vers des services tiers (WhatsApp, Telegram) dont nous ne contrôlons pas le fonctionnement.</p><h3>Droit applicable</h3><p>Le droit français s’applique. Tout litige relève des tribunaux compétents.</p>`],
+cgv:['Conditions générales de vente',`<h3>1. Objet</h3><p>Les présentes conditions régissent les ventes de <mark>[NOM DE L’ENTREPRISE]</mark> aux clients majeurs via ce site.</p><h3>2. Produits et prix</h3><p>Les produits sont décrits sur leur fiche. Les prix sont indiqués en euros, toutes taxes comprises <mark>[à vérifier selon ton statut]</mark>, et peuvent changer à tout moment. Le prix applicable est celui confirmé au moment de la commande.</p><h3>3. Commande</h3><p>Le client compose son panier, renseigne ses coordonnées de livraison, puis finalise sa commande avec notre équipe par WhatsApp ou Telegram. La commande n’est ferme qu’après confirmation de l’équipe.</p><h3>4. Paiement</h3><p>Les modes de paiement disponibles sont communiqués lors de la confirmation : <mark>[à compléter]</mark>.</p><h3>5. Livraison</h3><p>Livraison gratuite dès 49 € de commande. Les délais indiqués (en quelques heures) sont indicatifs et dépendent de la zone de livraison ; l’équipe confirme le délai exact. Le colis est remis par coursier. Le destinataire doit être majeur <mark>[et peut être invité à justifier de son âge]</mark>. Zones desservies : <mark>[à compléter]</mark>.</p><h3>6. Droit de rétractation</h3><p>Conformément au Code de la consommation, le client dispose de 14 jours à compter de la réception pour se rétracter, sauf exceptions légales (article L221-28), notamment pour les biens susceptibles de se détériorer rapidement ou les biens descellés qui ne peuvent être renvoyés pour des raisons d’hygiène ou de protection de la santé. <mark>[à adapter à ton activité]</mark></p><h3>7. Garanties légales</h3><p>Le client bénéficie de la garantie légale de conformité et de la garantie contre les vices cachés.</p><h3>8. Médiation</h3><p>Le client peut recourir gratuitement à un médiateur de la consommation : <mark>[nom, adresse et site du médiateur]</mark>.</p><h3>9. Données personnelles</h3><p>Voir la page Confidentialité.</p><h3>10. Droit applicable</h3><p>Les présentes conditions sont soumises au droit français.</p>`],
+confidentialite:['Confidentialité et cookies',`<h3>Responsable du traitement</h3><p><mark>[NOM DE L’ENTREPRISE]</mark>, <mark>[adresse]</mark>, <mark>[e-mail de contact]</mark>.</p><h3>Données traitées</h3><p>Nom, téléphone, adresse de livraison, contenu de la commande et échanges avec notre équipe sur WhatsApp ou Telegram.</p><h3>Pourquoi</h3><p>Traiter et livrer ta commande, assurer le suivi et répondre à tes demandes. Base légale : exécution de la commande.</p><h3>Où vont tes données</h3><p>Ce site n’a pas de base de données : le panier et l’adresse saisis restent dans ton navigateur et ne sont envoyés nulle part par le site. Ils sont transmis à notre équipe uniquement quand tu envoies toi-même le message sur WhatsApp ou Telegram. Ces services (Meta, Telegram) et l’hébergeur (Vercel) peuvent traiter des données hors de l’Union européenne.</p><h3>Cookies et stockage</h3><p>Le site n’utilise aucun cookie publicitaire ni de mesure d’audience. Il enregistre temporairement dans ton navigateur (sessionStorage) ton panier, ton adresse, ton style de boîte et ta confirmation d’âge. Ces informations disparaissent à la fermeture de l’onglet.</p><h3>Durée de conservation</h3><p>Les données de commande sont conservées <mark>[durée, par exemple 3 ans après la dernière commande]</mark>, puis supprimées ou archivées selon les obligations légales.</p><h3>Tes droits</h3><p>Tu peux demander l’accès, la rectification, l’effacement, la limitation ou la portabilité de tes données, et t’opposer à leur traitement, en écrivant à <mark>[e-mail]</mark>. Tu peux aussi saisir la CNIL (cnil.fr).</p>`]};
+function legalView(k){var v=document.getElementById('v-cart');v.onclick=null;v.innerHTML=`<h2 class='d'>${LG[k][0]}</h2><div class='legal'>${LG[k][1]}</div><p class='note'>Version du 19 novembre 2026.</p>`;show(v);crumbs([['Accueil','#top'],[LG[k][0]]])}
 function guess(){var r='';try{var l=navigator.languages||[navigator.language];for(var i=0;i<l.length&&!r;i++){var m=/-([A-Z]{2})$/.exec(l[i]);if(m&&EU.indexOf(m[1])>=0)r=m[1]}}catch(e){}
 if(!r)try{r=TZ[Intl.DateTimeFormat().resolvedOptions().timeZone]||''}catch(e){}return r}
 function cname(c){try{return new Intl.DisplayNames(['fr'],{type:'region'}).of(c)}catch(e){return c}}
 function summary(){var l=cartItems.map(function(i){return '• '+i.name+' ('+P[i.c]+') '+i.g+' g × '+i.q+' : '+fm(i.p*i.q)}).join('\n');
-return 'Voici mon panier :\n'+l+'\nTotal : '+fm(total())+'\n\nLivraison :\n'+addr.name+'\n'+addr.street+'\n'+addr.zip+' '+addr.city+', '+cname(addr.country)+'\nTél : '+addr.tel+(addr.note?'\nInfos : '+addr.note:'')}
-function cartView(){var v=document.getElementById('v-cart');v.onclick=null;
+return 'Voici mon panier :\n'+l+(rate()?'\nSous-total : '+fm(sub())+'\nCode '+code.toUpperCase()+' : -'+Math.round(rate()*100)+' %':'')+'\nTotal : '+fm(total())+'\nStyle de boîte : '+styleName()+'\n\nLivraison :\n'+addr.name+'\n'+addr.street+'\n'+addr.zip+' '+addr.city+', '+cname(addr.country)+'\nTél : '+addr.tel+(addr.note?'\nInfos : '+addr.note:'')}
+function cartView(){clean();var v=document.getElementById('v-cart');v.onclick=null;
 if(!cartItems.length){v.innerHTML=`<h2 class='d'>Panier vide</h2><p>Tu n’as encore rien ajouté.</p><p><a href='#top' style='text-decoration:underline'>Retour à l’accueil</a></p>`;show(v);crumbs([['Panier']]);return}
 var cs=[],tot=total(),left=49-tot;cartItems.forEach(function(i){var key=i.c+'|'+(i.k||'fleurs');if(cs.indexOf(key)<0)cs.push(key)});
-v.innerHTML=`<h2 class='d'>Ton panier</h2><div class='cart'><div>${cartItems.map(function(i,n){return `<div class='ci'><div><b>${i.name}</b><small style='display:block;opacity:.7'>${P[i.c]} · ${i.g} g · ${fm(i.p)}</small><span class='qb'><button type='button' data-a='m' data-i='${n}' aria-label='Retirer un'>−</button><i>${i.q}</i><button type='button' data-a='p' data-i='${n}' aria-label='Ajouter un'>+</button><button type='button' data-a='x' data-i='${n}' class='rm'>Supprimer</button></span></div><b>${fm(i.p*i.q)}</b></div>`}).join('')}</div><div><p class='lab'>Ton colis arrive dans</p><div class='boxrow'>${cs.map(function(kk){var a=kk.split('|');return `<div class='bx' data-c='${a[0]}' data-t='${a[1]==='resine'?'box':'tin'}' data-s='.62'></div>`}).join('')}</div><p class='tot'>Total : ${fm(tot)}</p><div class='ship'><i style='width:${Math.min(100,tot/49*100)}%'></i></div><p class='note'>${left>0?'Plus que '+fm(left)+' pour la livraison gratuite.':'Livraison gratuite, emballage discret.'}</p><div class='cta2'><a class='btn' href='#commande'>Valider ma commande</a><a class='btn lime' href='#boutique'>Continuer mes achats</a></div></div></div>`;
+v.innerHTML=`<h2 class='d'>Ton panier</h2><div class='cart'><div>${cartItems.map(function(i,n){return `<div class='ci'><div><b>${esc(i.name)}</b><small style='display:block;opacity:.7'>${P[i.c]} · ${i.g} g · ${fm(i.p)}</small><span class='qb'><button type='button' data-a='m' data-i='${n}' aria-label='Retirer un'>−</button><i>${i.q}</i><button type='button' data-a='p' data-i='${n}' aria-label='Ajouter un'>+</button><button type='button' data-a='x' data-i='${n}' class='rm'>Supprimer</button></span></div><b>${fm(i.p*i.q)}</b></div>`}).join('')}</div><div><p class='lab'>Ton colis arrive dans</p><div class='boxrow'>${(function(){var kd=kinds(),o='';if(kd.f)o+=`<div class='bx' data-c='${boxStyle}' data-s='.62'></div>`;if(kd.r)o+=`<div class='bx' data-c='${boxStyle}' data-t='box' data-s='.62'></div>`;return o})()}</div>${rate()?`<p class='note'>Sous-total : ${fm(sub())}</p><p class='note fine'>Code appliqué : −${Math.round(rate()*100)} %</p>`:''}<p class='tot'>Total : ${fm(tot)}</p><div class='ship'><i style='width:${Math.min(100,tot/49*100)}%'></i></div><p class='note'>${left>0?'Plus que '+fm(left)+' pour la livraison gratuite.':'Livraison gratuite, emballage discret.'}</p><div class='cta2'><a class='btn' href='#boite'>Valider ma commande</a><a class='btn lime' href='#boutique'>Continuer mes achats</a></div></div></div>`;
 v.onclick=function(e){var b=e.target.closest('button[data-a]');if(!b)return;var i=+b.dataset.i,a=b.dataset.a,it=cartItems[i];if(a==='p')it.q++;else if(a==='m'){it.q--;if(it.q<1)cartItems.splice(i,1)}else cartItems.splice(i,1);save();upd();cartView()};
 show(v);crumbs([['Boutique','#boutique'],['Panier']]);CBX.mount(v)}
 function checkoutView(){if(!cartItems.length){location.hash='panier';return}
 var v=document.getElementById('v-cart'),cc=addr.country||guess();v.onclick=null;
 var opts=EU.map(function(c){return {c:c,n:cname(c)}}).sort(function(x,y){return x.n.localeCompare(y.n,'fr')}).map(function(o){return `<option value='${o.c}'${o.c===cc?' selected':''}>${o.n}</option>`}).join('');
-v.innerHTML=`<h2 class='d'>Ta livraison</h2><p style='max-width:560px'>Touche le premier champ : ton navigateur peut remplir ton adresse enregistrée en un clic. Le pays et l’indicatif du téléphone sont déjà détectés.</p><form id='ad' class='ad' autocomplete='on'><label>Nom complet<input name='name' autocomplete='name' required value='${esc(addr.name)}'></label><label>Téléphone<input name='tel' type='tel' autocomplete='tel' inputmode='tel' required value='${esc(addr.tel)}'></label><label class='w2'>Adresse<input name='street' autocomplete='street-address' required value='${esc(addr.street)}'></label><label>Code postal<input name='zip' autocomplete='postal-code' inputmode='numeric' required value='${esc(addr.zip)}'></label><label>Ville<input name='city' autocomplete='address-level2' required value='${esc(addr.city)}'></label><label class='w2'>Pays<select name='country' autocomplete='country' required>${opts}</select></label><label class='w2'>Infos pour le livreur (facultatif)<input name='note' autocomplete='off' placeholder='Étage, code d’entrée…' value='${esc(addr.note)}'></label><div class='cta2 w2'><a class='btn lime' href='#panier'>← Panier</a><button class='btn' type='submit'>Suivant</button></div></form>`;
+v.innerHTML=`<h2 class='d'>Ta livraison</h2><p style='max-width:560px'>Touche le premier champ : ton navigateur peut remplir ton adresse enregistrée en un clic. Le pays et l’indicatif du téléphone sont déjà détectés.</p><form id='ad' class='ad' autocomplete='on'><label>Nom complet<input name='name' autocomplete='name' required maxlength='80' value='${esc(addr.name)}'></label><label>Téléphone<input name='tel' type='tel' autocomplete='tel' inputmode='tel' required maxlength='20' pattern='[+0-9 ().\-]{6,20}' value='${esc(addr.tel)}'></label><label class='w2'>Adresse<input name='street' autocomplete='street-address' required maxlength='120' value='${esc(addr.street)}'></label><label>Code postal<input name='zip' autocomplete='postal-code' inputmode='numeric' required maxlength='10' value='${esc(addr.zip)}'></label><label>Ville<input name='city' autocomplete='address-level2' required maxlength='60' value='${esc(addr.city)}'></label><label class='w2'>Pays<select name='country' autocomplete='country' required>${opts}</select></label><label class='w2'>Infos pour le livreur (facultatif)<input name='note' autocomplete='off' maxlength='200' placeholder='Étage, code d’entrée…' value='${esc(addr.note)}'></label><div class='cta2 w2'><input name='website' tabindex='-1' autocomplete='off' aria-hidden='true' style='position:absolute;left:-9999px;width:1px;height:1px;opacity:0'><a class='btn lime' href='#code'>← Code</a><button class='btn' type='submit'>Suivant</button></div></form>`;
 var f=document.getElementById('ad'),tel=f.elements.tel,co=f.elements.country;
 function dial(){if(!tel.value||/^\+\d{1,3}\s?$/.test(tel.value))tel.value=(DIAL[co.value]||'')+' '}
 dial();co.onchange=function(){if(/^\+\d{1,3}\s?$/.test(tel.value))tel.value='';dial()};
-f.onsubmit=function(e){e.preventDefault();var d=new FormData(f);addr={name:d.get('name'),tel:d.get('tel'),street:d.get('street'),zip:d.get('zip'),city:d.get('city'),country:d.get('country'),note:d.get('note')};try{sessionStorage.setItem('cn_addr',JSON.stringify(addr))}catch(z){}location.hash='finaliser'};
+f.onsubmit=function(e){e.preventDefault();if(Date.now()-lastSub<2000)return;if(!f.checkValidity()){f.reportValidity();return}lastSub=Date.now();var d=new FormData(f);if(d.get('website'))return;addr={name:cl(d.get('name'),80),tel:cl(d.get('tel'),20),street:cl(d.get('street'),120),zip:cl(d.get('zip'),10),city:cl(d.get('city'),60),country:EU.indexOf(d.get('country'))>=0?d.get('country'):'FR',note:cl(d.get('note'),200)};try{sessionStorage.setItem('cn_addr',JSON.stringify(addr))}catch(z){}location.hash='finaliser'};
 show(v);crumbs([['Boutique','#boutique'],['Panier','#panier'],['Livraison']])}
 function specialView(){var v=document.getElementById('v-cart');v.onclick=null;var msg='J’aimerais faire une demande spéciale.',wa='https://wa.me/'+TEAM.wa+'?text='+encodeURIComponent(msg),tg='https://t.me/'+TEAM.tg;
 v.innerHTML=`<h2 class='d'>Demande spéciale</h2><p style='max-width:620px;font-size:18px'>Tu ne trouves pas ce que tu cherches ? Écris directement à notre équipe, dans l’application de ton choix.</p><div class='pick'><a class='tile wa' href='${wa}' target='_blank' rel='noopener'>${WAI}<h3 class='d'>WhatsApp</h3><p>Le message est déjà écrit : il te suffit de l’envoyer</p></a><a class='tile tg' id='stg' href='${tg}' target='_blank' rel='noopener'>${TGI}<h3 class='d'>Telegram</h3><p>Le message est copié : colle-le dans la conversation</p></a></div><p class='note fine' id='sfm'></p>`;
 document.getElementById('stg').onclick=function(){try{navigator.clipboard.writeText(msg)}catch(z){}document.getElementById('sfm').textContent='Message copié : colle-le dans la conversation Telegram.'};
 show(v);crumbs([['Boutique','#boutique'],['Demande spéciale']])}
 function finalView(){if(!cartItems.length){location.hash='panier';return}if(!addr.name){location.hash='commande';return}
-var v=document.getElementById('v-cart'),wa=TEAM.wa?'https://wa.me/'+TEAM.wa+'?text='+encodeURIComponent(summary()):'#finaliser',tg=TEAM.tg?'https://t.me/'+TEAM.tg:'#finaliser';v.onclick=null;
-v.innerHTML=`<h2 class='d'>Dernière étape</h2><p style='max-width:620px;font-size:18px'>Choisis ton application : tu es mis en contact direct avec notre équipe pour passer ta commande et suivre ton livreur.</p><div class='pick'><a class='tile wa' id='bwa' href='${wa}' target='_blank' rel='noopener'>${WAI}<h3 class='d'>WhatsApp</h3><p>Ouvre la conversation avec ton récapitulatif</p></a><a class='tile tg' id='btg' href='${tg}' target='_blank' rel='noopener'>${TGI}<h3 class='d'>Telegram</h3><p>Ton récapitulatif est copié : colle-le dans la conversation</p></a></div><p class='note fine' id='fm'></p><div class='recap'><p class='lab'>Ta commande</p>${cartItems.map(function(i){return `<div class='ci'><span>${i.name} · ${P[i.c]} · ${i.g} g × ${i.q}</span><b>${fm(i.p*i.q)}</b></div>`}).join('')}<p class='tot'>Total : ${fm(total())}</p><p class='lab'>Livraison</p><p>${esc(addr.name)}<br>${esc(addr.street)}<br>${esc(addr.zip)} ${esc(addr.city)}, ${esc(cname(addr.country))}<br>${esc(addr.tel)}</p><a href='#commande' style='text-decoration:underline'>Modifier l’adresse</a></div>`;
+var v=document.getElementById('v-cart'),wa=TEAM.wa?'https://wa.me/'+TEAM.wa+'?text='+encodeURIComponent(summary().slice(0,1500)):'#finaliser',tg=TEAM.tg?'https://t.me/'+TEAM.tg:'#finaliser';v.onclick=null;
+v.innerHTML=`<h2 class='d'>Dernière étape</h2><p style='max-width:620px;font-size:18px'>Choisis ton application : tu es mis en contact direct avec notre équipe pour passer ta commande et suivre ton livreur.</p><div class='pick'><a class='tile wa' id='bwa' href='${wa}' target='_blank' rel='noopener'>${WAI}<h3 class='d'>WhatsApp</h3><p>Ouvre la conversation avec ton récapitulatif</p></a><a class='tile tg' id='btg' href='${tg}' target='_blank' rel='noopener'>${TGI}<h3 class='d'>Telegram</h3><p>Ton récapitulatif est copié : colle-le dans la conversation</p></a></div><p class='note fine' id='fm'></p><div class='recap'><p class='lab'>Ta commande</p>${cartItems.map(function(i){return `<div class='ci'><span>${i.name} · ${P[i.c]} · ${i.g} g × ${i.q}</span><b>${fm(i.p*i.q)}</b></div>`}).join('')}${rate()?`<p class='note fine'>Code ${esc(code.toUpperCase())} : −${Math.round(rate()*100)} %</p>`:''}<p class='tot'>Total : ${fm(total())}</p><p>Boîte : ${styleName()}</p><p class='lab'>Livraison</p><p>${esc(addr.name)}<br>${esc(addr.street)}<br>${esc(addr.zip)} ${esc(addr.city)}, ${esc(cname(addr.country))}<br>${esc(addr.tel)}</p><a href='#commande' style='text-decoration:underline'>Modifier l’adresse</a></div>`;
 var fmx=document.getElementById('fm');
 document.getElementById('bwa').onclick=function(e){if(!TEAM.wa){e.preventDefault();fmx.textContent='Le numéro WhatsApp de l’équipe n’est pas encore configuré.'}};
 document.getElementById('btg').onclick=function(e){if(!TEAM.tg){e.preventDefault();fmx.textContent='Le contact Telegram de l’équipe n’est pas encore configuré.';return}try{navigator.clipboard.writeText(summary())}catch(z){}fmx.textContent='Récapitulatif copié : colle-le dans la conversation Telegram.'};
@@ -616,33 +638,40 @@ function fm(x){return x.toFixed(2).replace('.',',')+' €'}
 function pcard(c,o,p){return '<a class="card prod" href="#'+c+'-'+o+'-'+p.slug+'"><div class="img"><img src="'+p.img+'" alt="'+p.name+'"></div><div class="body"><span class="pill">'+P[o]+'</span><h3 class="d">'+p.name+'</h3><small>'+p.desc+'</small></div></a>'}
 function prod(m){var l=CAT[m[1]+'-'+m[2]]||[],p=l.filter(function(x){return x.slug===m[3]})[0];if(!p)return false;
 var v=document.getElementById('v-prod'),sel=0;
-v.innerHTML='<div class="pd"><div class="pd-img"><img src="'+p.img2+'" alt="'+p.name+'"></div><div class="pd-info"><span class="pill">'+P[m[2]]+'</span><h2 class="d">'+p.name+'</h2>'+(p.text?'<p class="pdesc">'+p.text+'</p>':'')+'<ul class="spec">'+p.info.map(function(i){return '<li><b>'+i[0]+'</b><span>'+i[1]+'</span></li>'}).join('')+'</ul><p class="lab">Quantité en grammes</p><div class="qty" role="radiogroup" aria-label="Quantité">'+p.prices.map(function(q){return '<button type="button" class="q" role="radio"><b>'+q[0]+' g</b><span>'+fm(q[1])+'</span><em>'+(q[1]/q[0]).toFixed(2).replace('.',',')+' €/g</em></button>'}).join('')+'</div><p class="tot" id="tot"></p><button type="button" class="btn" id="add">Ajouter au panier</button><p class="note">Livraison gratuite dès 49 €, emballage discret.</p></div></div><div class="boxpv"><div class="bx" data-c="'+m[2]+'" data-t="'+(m[1]==='resine'?'box':'tin')+'" data-s=".9"></div><div><h3 class="d">Ta boîte '+CBX.names[m[2]]+'</h3><p>Chaque commande '+P[m[2]]+' arrive dans '+(m[1]==='resine'?'sa boîte plate':'sa boîte ronde')+' collector, glissée dans un colis neutre : la livraison reste 100 % discrète. Fais tourner la boîte pour voir toutes les faces.</p></div></div>';
+v.innerHTML='<div class="pd"><div class="pd-img"><img src="'+p.img2+'" alt="'+p.name+'"></div><div class="pd-info"><span class="pill">'+P[m[2]]+'</span><h2 class="d">'+p.name+'</h2>'+(p.text?'<p class="pdesc">'+p.text+'</p>':'')+'<ul class="spec">'+p.info.map(function(i){return '<li><b>'+i[0]+'</b><span>'+i[1]+'</span></li>'}).join('')+'</ul><p class="lab">Quantité en grammes</p><div class="qty" role="radiogroup" aria-label="Quantité">'+p.prices.map(function(q){return '<button type="button" class="q" role="radio"><b>'+q[0]+' g</b><span>'+fm(q[1])+'</span><em>'+(q[1]/q[0]).toFixed(2).replace('.',',')+' €/g</em></button>'}).join('')+'</div><p class="tot" id="tot"></p><button type="button" class="btn" id="add">Ajouter au panier</button><p class="note">Livraison gratuite dès 49 €, emballage discret.</p></div></div><div class="boxpv"><div class="bx" data-c="'+m[2]+'" data-t="'+(m[1]==='resine'?'box':'tin')+'" data-s=".9"></div><div><h3 class="d">Ta boîte '+CBX.names[m[2]]+'</h3><p>Chaque commande '+P[m[2]]+' arrive dans '+(m[1]==='resine'?'sa boîte plate':'sa boîte ronde')+' collector, glissée dans un colis neutre : la livraison reste 100 % discrète. Fais tourner la boîte pour voir toutes les faces. Tu choisis ton style de boîte au moment de valider ta commande.</p></div></div>';
 var t=document.getElementById('tot'),b=v.querySelectorAll('.q');
 function up(){t.textContent='Total : '+fm(p.prices[sel][1]);b.forEach(function(x,i){x.setAttribute('aria-checked',i===sel)})}
 b.forEach(function(x,i){x.onclick=function(){sel=i;up()}});up();
 document.getElementById('add').onclick=function(){addItem({name:p.name,c:m[2],k:m[1],g:p.prices[sel][0],p:p.prices[sel][1]});location.hash='panier'};
-show(v);crumbs([['Boutique','#boutique'],[C[m[1]],'#'+m[1]],[P[m[2]],'#'+m[1]+'-'+m[2]],[p.name]]);CBX.mount(v);return true}
+show(v);crumbs([['Boutique','#boutique'],[C[m[1]],'#'+m[1]],[p.name]]);CBX.mount(v);return true}
 function crumbs(a){cr.innerHTML=a.map(function(x,i){return i===a.length-1?'<span>'+x[0]+'</span>':'<a href="'+x[1]+'">'+x[0]+'</a><span>›</span>'}).join('')}
 function card(c,o,n,d,s){return '<article class="card'+(s?' soon':'')+'"><div class="img"><svg viewBox="-110 -110 220 170" aria-hidden="true"><use href="#leaf"/></svg></div><div class="body"><span class="pill">'+o+'</span><h3 class="d">'+n+'</h3><small>'+d+'</small></div></article>'}
 function route(){
-var h=location.hash.slice(1),m=/^(fleurs|resine)(?:-(usa|maroc|venezuela|colombie)(?:-([a-z0-9-]+))?)?$/.exec(h),on=h==='boutique'||h==='panier'||h==='commande'||h==='finaliser'||h==='demande'||!!m;
+var h=location.hash.slice(1),m=/^(fleurs|resine)(?:-(usa|maroc|venezuela|colombie)(?:-([a-z0-9-]+))?)?$/.exec(h),on=h==='boutique'||h==='panier'||h==='commande'||h==='finaliser'||h==='demande'||h==='boite'||h==='code'||h==='mentions'||h==='cgv'||h==='confidentialite'||!!m;
+if(m)m[2]='usa';
 document.body.classList.toggle('shopping',on);shop.hidden=!on;
 if(!on){if(h){var el=document.getElementById(h);if(el)el.scrollIntoView()}return}
 if(h==='panier'){cartView()}
 else if(h==='commande'){checkoutView()}
 else if(h==='finaliser'){finalView()}
 else if(h==='demande'){specialView()}
+else if(h==='boite'){boxView()}
+else if(h==='code'){promoView()}
+else if(h==='mentions'||h==='cgv'||h==='confidentialite'){legalView(h)}
 else if(h==='boutique'){show(vc);crumbs([['Boutique']])}
 else if(!m[2]){show(vp);document.getElementById('pays-t').textContent=C[m[1]]+'. Quelle origine ?';document.getElementById('pays-g').innerHTML=tiles(m[1]);crumbs([['Boutique','#boutique'],[C[m[1]]]])}
 else if(m[3]&&prod(m)){}
 else{show(vg);var c=m[1],o=m[2],l=CAT[m[1]+'-'+m[2]]||[];
-document.getElementById('cat-t').textContent=C[c]+' · '+P[o];
+document.getElementById('cat-t').textContent=C[c];
 document.getElementById('cat-s').textContent=l.length?'':'Les produits de ce catalogue arrivent bientôt.';
 document.getElementById('cat-g').innerHTML=l.length?l.map(function(p){return pcard(c,o,p)}).join(''):[0,1,2,3].map(function(){return card(c,P[o],'Produit à venir','Taux de CBD et de THC, analyse du lot',true)}).join('');
-crumbs([['Boutique','#boutique'],[C[c],'#'+c],[P[o]]])}
+crumbs([['Boutique','#boutique'],[C[c]]])}
 scrollTo(0,0)}
 CAT['resine-usa']=[{slug:'boom-lunaire',name:'Boom Lunaire',desc:'\u00c0 partir de 9,90 \u20ac',text:'Lunaire, c\u2019est le produit le plus spectaculaire du catalogue d\u2019extraits, non pas pour son utilisation, mais pour sa teneur en CBD.',info:[['Cat\u00e9gorie','Extrait'],['Origine','USA']],prices:[[1,9.9],[3,28.5],[5,45.0],[10,85.0],[15,120.0],[25,187.5],[50,350.0],[100,650.0]]}];
-CAT['fleurs-maroc']=[{slug:'liberty-nano-9',name:'Liberty Nano 9',desc:'\u00c0 partir de 6,00 \u20ac / g',text:'Une fleur au profil aromatique principalement frais, signature de la g\u00e9n\u00e9tique Liberty Haze.',info:[['Cat\u00e9gorie','Fleurs'],['Origine','Maroc']],prices:[[1,9.0],[3,24.0],[5,37.5],[10,70.0],[25,162.5],[50,310.0],[100,600.0]]}];
+CAT['fleurs-usa'].push({slug:'liberty-nano-9',name:'Liberty Nano 9',desc:'\u00c0 partir de 6,00 \u20ac / g',text:'Une fleur au profil aromatique principalement frais, signature de la g\u00e9n\u00e9tique Liberty Haze.',info:[['Cat\u00e9gorie','Fleurs'],['Origine','USA']],prices:[[1,9.0],[3,24.0],[5,37.5],[10,70.0],[25,162.5],[50,310.0],[100,600.0]]});
+CAT['fleurs-usa'].push({slug:'gorilla-small-bud',name:'Gorilla Small Bud',desc:'\u00c0 partir de 12,90 \u20ac',text:'Bienvenue dans l’univers de la puissance et de la résine. Découvrez Gorilla CBD, l’une des variétés les plus emblématiques et légendaires au monde, désormais disponible légalement. Réputée pour ses têtes incroyablement collantes et compactes, cette fleur captive au premier regard grâce à son profil terpénique puissant, terreux et citronné.',info:[['Cat\u00e9gorie','Fleurs'],['Origine','USA'],['Format','Small bud'],['Ar\u00f4mes','Terreux, citronn\u00e9']],prices:[[5,12.90],[10,22.90],[20,39.90],[50,89.90],[100,149.90],[200,249.90]]});
+CAT['fleurs-usa'].push({slug:'fraisier',name:'Fraisier',desc:'\u00c0 partir de 55 \u20ac',text:'Hybride \u00e0 dominance sativa, aux t\u00eates compactes couvertes de r\u00e9sine. Un ar\u00f4me intense et gourmand de fraise.',info:[['Cat\u00e9gorie','Fleurs'],['Origine','USA'],['G\u00e9n\u00e9tique','Hybride \u00e0 dominance sativa (75\u00a0% sativa / 25\u00a0% indica)'],['Ar\u00f4mes','Fraise, gourmand']],prices:[[5,55],[10,100],[20,180],[50,400],[100,700],[250,1400],[500,2300]]});
+CAT['resine-usa'].push({slug:'hash-cbd-blond',name:'Hash de CBD blond',desc:'\u00c0 partir de 89,99 \u20ac',text:'R\u00e9sine de chanvre blond dor\u00e9, tamis\u00e9e \u00e0 froid selon la m\u00e9thode traditionnelle qui s\u00e9pare les trichomes.',info:[['Cat\u00e9gorie','R\u00e9sine'],['Origine','USA'],['Type','Hash de chanvre tamis\u00e9 \u00e0 froid (tri\u00e9 \u00e0 sec)'],['Couleur','Blond dor\u00e9']],prices:[[10,89.99],[15,124.99],[20,159.99]]});
 /* IMAGES AUTOMATIQUES : pour chaque produit, le site cherche  images/<categorie>-<pays>/<slug>/carte.jpg  et  detail.jpg */
 var EM=window.EMBED||{};Object.keys(CAT).forEach(function(k){CAT[k].forEach(function(p){p.img=p.img||EM[k+'/'+p.slug+'/carte']||'images/'+k+'/'+p.slug+'/carte.jpg';p.img2=p.img2||EM[k+'/'+p.slug+'/detail']||'images/'+k+'/'+p.slug+'/detail.jpg'})});
 var ug=document.getElementById('une-g');if(ug&&CAT['fleurs-usa'])ug.innerHTML=[['fleurs','usa'],['resine','usa']].map(function(a){return (CAT[a[0]+'-'+a[1]]||[]).map(function(p){return pcard(a[0],a[1],p)}).join('')}).join('');

@@ -1,0 +1,2 @@
+Photos des produits resine-usa.
+Pour chaque produit, cree un sous-dossier portant son slug (ex. mon-produit) avec carte.jpg et detail.jpg (minuscules, extension .jpg).

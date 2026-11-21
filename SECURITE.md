@@ -1,29 +1,33 @@
 # CANNOVA : sécurité, expliquée simplement
 
-## Ce que le site fait déjà
-- **Aucune base de données et aucun serveur à pirater** : le site est un ensemble de fichiers. Le panier et l'adresse restent dans le navigateur du client (sessionStorage, effacé à la fermeture de l'onglet). Les commandes ne passent que par WhatsApp ou Telegram, quand le client envoie lui-même son message. **Il n'y a donc aucun fichier client à voler sur le site.**
-- **Aucun cookie** : pas de cookie publicitaire, pas de suivi. Il n'y a donc rien à voler « par cookies ».
-- **En-têtes de sécurité** (fichier `vercel.json`, à déposer avec `index.html`) : interdit les scripts venant d'ailleurs que ton site et cdnjs (protection contre l'injection de code), interdit d'afficher ton site dans le cadre d'un autre site (anti-clickjacking), force HTTPS, bloque caméra, micro et géolocalisation, réduit les informations envoyées aux sites tiers.
-- **Formulaire d'adresse** : longueurs maximales, format du téléphone vérifié, caractères dangereux retirés, champ piège invisible contre les robots, délai minimum de 2 secondes entre deux envois.
-- **Panier** : à chaque affichage, les prix et les grammages sont recalculés à partir du catalogue, de sorte qu'un client qui modifierait le panier dans son navigateur ne peut pas changer un prix. Quantité limitée à 20 par produit et 20 lignes.
-- **Message de commande** limité à 1 500 caractères.
+## Ta remarque sur F12 : elle est juste
+Tout ce qui est écrit dans la page du site (le code qu'on voit avec F12) peut être lu et modifié par n'importe quel visiteur. C'est pour ça que **les codes de réduction ne sont plus dans la page** : ils sont stockés sur le serveur, qui répond « valable » ou « pas valable ». Un visiteur ne peut ni lire la liste des codes, ni en créer.
+
+## Ce qui est en place
+- **Espace admin** (`/admin`) : connexion par **e-mail unique** (oreofalonnaa@gmail.com) avec un code à usage unique envoyé par e-mail. Autre e-mail : refusé, renvoyé sur l'accueil, enregistré, appareil bloqué 1 heure après 3 essais.
+- **Cookie de session** protégé (HttpOnly, Secure, SameSite=Strict), signé et limité à 8 heures. Un cookie falsifié est refusé.
+- **Limites** (anti-bots, anti-surcharge) : 90 mesures par minute, 20 essais de code par 10 minutes, 8 demandes de connexion par 15 minutes, par appareil.
+- **En-têtes de sécurité** (`vercel.json`) : interdit les scripts venant d'ailleurs que ton site et cdnjs, interdit d'afficher ton site dans le cadre d'un autre site, force HTTPS, bloque caméra, micro et géolocalisation.
+- **Formulaire d'adresse** : longueurs limitées, téléphone contrôlé, caractères dangereux retirés, champ piège contre les robots.
+- **Panier** : prix et grammages recalculés à partir du catalogue à chaque affichage ; 20 lignes et 20 unités maximum.
+- **Données clients** : le panier et l'adresse restent dans le navigateur du client. **Le serveur ne stocke que des compteurs anonymes et les codes**, jamais de nom, d'adresse ni de téléphone.
+- **Cookies visiteurs** : aucun.
 
 ## « 1 000 visiteurs en même temps »
-Le site est servi par le réseau de Vercel (CDN) : des fichiers statiques sont distribués à des milliers de visiteurs sans effort, et c'est le téléphone du visiteur qui fait les calculs de l'animation 3D. Pour ne pas surcharger les appareils modestes, le fond 3D se réduit automatiquement sur les petits téléphones et les appareils à 4 cœurs ou moins. Les photos sont mises en cache 24 heures.
+- Les pages sont servies par le réseau de Vercel, qui encaisse des milliers de visiteurs sans effort.
+- Les fonctions serveur s'adaptent automatiquement au nombre de visiteurs ; les mesures sont envoyées en tâche de fond : si la base est saturée, le site continue de fonctionner.
+- **Mode léger automatique** : si un appareil est trop lent (moins de 24 images par seconde) ou en mode économie de données, le fond 3D se coupe et les animations s'arrêtent. Sur les téléphones modestes, le nombre de feuilles 3D est réduit dès le départ.
+- Les photos sont mises en cache 24 heures.
 
-## Ce qu'il reste à faire de ton côté (10 minutes)
-1. **Active la double authentification (2FA)** sur ton compte GitHub **et** sur ton compte Vercel. C'est la protection la plus importante : la majorité des piratages de sites viennent d'un compte volé, pas du code.
-2. Utilise des **mots de passe longs et uniques** (gestionnaire de mots de passe).
-3. Sur Vercel, dans le projet : **Settings, Firewall** : active le mode « Attack Challenge Mode » en cas d'attaque, et ajoute une règle de limitation de débit si ton offre le permet.
-4. Sur GitHub, dépôt privé si possible, et ne mets **jamais** de mot de passe ou de clé dans les fichiers.
-5. Quand tu auras un nom de domaine : active HTTPS (automatique sur Vercel) et garde le renouvellement automatique du domaine.
-6. Garde une **copie du dossier** sur ton ordinateur (sauvegarde).
-7. Pour les téléphones de ton équipe, protège WhatsApp et Telegram par une vérification en deux étapes.
+## À faire de ton côté (10 minutes)
+1. **Double authentification (2FA)** sur **Gmail**, GitHub, Vercel, Upstash et Resend : c'est la protection la plus importante.
+2. Mots de passe longs et uniques (gestionnaire de mots de passe).
+3. Sur Vercel : **Settings, Firewall** : « Attack Challenge Mode » en cas d'attaque.
+4. Dépôt GitHub **privé**, et ne mets jamais de mot de passe ou de clé dans les fichiers (les clés vont dans les variables d'environnement).
+5. Garde une copie du dossier sur ton ordinateur.
 
-## Les limites, honnêtement
-- **Aucun site n'est « inpiratable » à 100 %.** Personne ne peut le garantir. Ce qui est en place réduit fortement les risques courants.
-- **Je ne peux pas intégrer un « antivirus »** dans le site : ça n'existe pas pour un site statique. L'équivalent, c'est la liste d'autorisations des scripts (CSP) et les protections du compte d'hébergement.
-- **Le site charge three.js depuis cdnjs** : si cdnjs était compromis, c'est un risque rare mais réel. Pour le supprimer, héberge toi-même le fichier three.js (r128) dans ton dossier.
-- La politique CSP autorise les scripts écrits dans la page (`unsafe-inline`), car le site est un seul fichier. Une version plus stricte demande de séparer le JavaScript dans des fichiers.
-- **WhatsApp et Telegram** sont des services tiers : la sécurité des conversations dépend d'eux et de tes téléphones.
-- **Les données de tes clients dans tes propres conversations** (adresses, téléphones) sont à protéger : verrouille tes appareils, ne les partage pas, supprime-les quand tu n'en as plus besoin (RGPD).
+## Limites, honnêtement
+- **Aucun site n'est invulnérable.** Ce qui est en place réduit fortement les risques courants.
+- **Je ne peux pas intégrer d'« antivirus »** : la protection équivalente, ce sont les règles d'autorisation de scripts (CSP), les limites de requêtes et les protections de tes comptes.
+- Le site charge three.js depuis cdnjs ; pour supprimer ce risque rare, héberge toi-même ce fichier.
+- Un client peut modifier le total affiché dans son navigateur : ton équipe doit **recalculer le total** à la réception du message.

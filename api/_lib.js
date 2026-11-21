@@ -2,8 +2,17 @@
 const crypto = require('crypto');
 const URL_ = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
 const TOK = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
-const SECRET = process.env.SESSION_SECRET || '';
-const ADMIN = (process.env.ADMIN_EMAIL || '').trim().toLowerCase();
+// Si SESSION_SECRET n'est pas défini, une clé est dérivée des clés Upstash et Resend (qui sont secrètes).
+const SECRET = process.env.SESSION_SECRET || ((TOK && process.env.RESEND_API_KEY) ? crypto.createHash('sha256').update('cannova|' + TOK + '|' + process.env.RESEND_API_KEY).digest('hex') : '');
+// Adresse admin : variable ADMIN_EMAIL si elle existe, sinon l'adresse de CANNOVA.
+const ADMIN = (process.env.ADMIN_EMAIL || 'oreofalonnaa@gmail.com').trim().toLowerCase();
+function missing() {
+  const m = [];
+  if (!URL_ || !TOK) m.push('base Upstash Redis non connectée (variables KV_REST_API_URL et KV_REST_API_TOKEN, ou UPSTASH_REDIS_REST_URL et UPSTASH_REDIS_REST_TOKEN)');
+  if (!process.env.RESEND_API_KEY) m.push('RESEND_API_KEY');
+  if (!SECRET) m.push('SESSION_SECRET');
+  return m;
+}
 
 async function redis(cmds) {
   if (!URL_ || !TOK) throw new Error('redis_not_configured');
@@ -38,4 +47,4 @@ async function mail(to, subject, text) {
   const r = await fetch('https://api.resend.com/emails', { method: 'POST', headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' }, body: JSON.stringify({ from: process.env.MAIL_FROM || 'CANNOVA <onboarding@resend.dev>', to: [to], subject, text }) });
   if (!r.ok) throw new Error('mail_' + r.status);
 }
-module.exports = { crypto, redis, one, sha, day, ip, ipHash, limit, sign, verify, cookie, admin, body, send, guard, mail, SECRET, ADMIN };
+module.exports = { missing, crypto, redis, one, sha, day, ip, ipHash, limit, sign, verify, cookie, admin, body, send, guard, mail, SECRET, ADMIN };

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><title>CANNOVA · Admin</title>
+<style>
+:root{--bg:#030807;--ink:#eefcf6;--lime:#c6ff3d;--t:#19e6d2;--card:rgba(255,255,255,.06);--line:rgba(255,255,255,.2)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(900px 500px at 10% -10%,#0c3b36,transparent),var(--bg);color:var(--ink);font:16px/1.5 system-ui,Arial,sans-serif;padding:20px}
+main{max-width:1000px;margin:0 auto}h1{font-size:28px;margin:0 0 4px}h2{font-size:20px;margin:28px 0 10px}.muted{opacity:.7}
+.card,.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}.k b{display:block;font-size:30px;color:var(--lime)}.k span{opacity:.8;font-size:14px}
+input,button{font:inherit;border-radius:12px;border:1px solid var(--line);padding:11px 14px;background:rgba(255,255,255,.08);color:var(--ink)}
+button{background:var(--lime);color:#030807;font-weight:700;border:0;cursor:pointer}button.g{background:transparent;color:var(--ink);border:1px solid var(--line)}
+form{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right}th:first-child,td:first-child{text-align:left}
+.wrap{overflow-x:auto}.msg{color:var(--lime);min-height:1.4em}.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+</style></head><body><main id="app"></main>
+<script>
+const A=document.getElementById('app');
+const api=(p,m,b)=>fetch(p,{method:m||'GET',credentials:'same-origin',headers:{'Content-Type':'application/json','X-Requested-With':'cannova'},body:b?JSON.stringify(b):undefined}).then(async r=>{let j={};try{j=await r.json()}catch(e){}if(j&&j.kick){location.replace('/');throw new Error('kick')}return {s:r.status,j}});
+function el(t,a,...c){const e=document.createElement(t);Object.entries(a||{}).forEach(([k,v])=>{if(k==='class')e.className=v;else if(k.startsWith('on'))e[k]=v;else e.setAttribute(k,v)});c.flat().forEach(x=>e.append(x&&x.nodeType?x:document.createTextNode(x==null?'':x)));return e}
+function login(){
+ A.replaceChildren(el('h1',{},'CANNOVA · Admin'),el('p',{class:'muted'},'Connexion réservée. Un code à usage unique est envoyé par e-mail.'));
+ const msg=el('p',{class:'msg',role:'status'}),em=el('input',{type:'email',placeholder:'Adresse e-mail',autocomplete:'email',required:'',maxlength:'120'});
+ const f=el('form',{onsubmit:async e=>{e.preventDefault();msg.textContent='Envoi…';try{const r=await api('/api/admin/request-code','POST',{email:em.value});if(r.j.ok){code(em.value)}else msg.textContent=r.j.msg||'Impossible pour le moment.'}catch(x){}}},em,el('button',{type:'submit'},'Recevoir le code'));
+ A.append(f,msg)}
+function code(email){
+ A.replaceChildren(el('h1',{},'Code reçu par e-mail'));
+ const msg=el('p',{class:'msg',role:'status'}),c=el('input',{inputmode:'numeric',placeholder:'6 chiffres',autocomplete:'one-time-code',maxlength:'6',required:''});
+ A.append(el('form',{onsubmit:async e=>{e.preventDefault();msg.textContent='Vérification…';try{const r=await api('/api/admin/verify','POST',{email,code:c.value});if(r.j.ok)dash();else msg.textContent=r.j.msg||'Échec.'}catch(x){}}},c,el('button',{type:'submit'},'Entrer')),msg)}
+const sum=(rows,k,n)=>rows.slice(0,n).reduce((a,r)=>a+r[k],0);
+async function dash(){
+ const [s,c]=await Promise.all([api('/api/admin/stats'),api('/api/admin/codes')]);
+ if(s.s===401){login();return}
+ const rows=s.j.rows||[],tot=(k,n)=>sum(rows,k,n),pct=(a,b)=>b?(100*a/b).toFixed(1)+' %':'–';
+ const k=(l,v)=>el('div',{class:'card k'},el('b',{},v),el('span',{},l));
+ const top=el('div',{class:'top'},el('div',{},el('h1',{},'Tableau de bord'),el('p',{class:'muted'},'Données anonymes, sans cookie visiteur.')),el('div',{},el('button',{class:'g',onclick:dash},'Actualiser'),' ',el('button',{class:'g',onclick:async()=>{await api('/api/admin/logout','POST',{});location.replace('/')}},'Se déconnecter')));
+ const cards=el('div',{class:'grid'},k("Visites aujourd'hui",tot('visit',1)),k('Visites 7 jours',tot('visit',7)),k('Visites 30 jours',tot('visit',30)),k('Visiteurs uniques 30 j (≈)',tot('uv',30)),k('Ajouts au panier 30 j',tot('cart_add',30)),k('Sur « Finaliser » 30 j',tot('checkout',30)),k('Clics WhatsApp 30 j',tot('wa',30)),k('Clics Telegram 30 j',tot('tg',30)),k('Demandes spéciales 30 j',tot('special',30)),k('Visite → écrit à l’équipe',pct(tot('wa',30)+tot('tg',30),tot('visit',30))));
+ const head=['Jour','Visites','Uniques','Panier','Finaliser','WhatsApp','Telegram','Spécial'],keys=['visit','uv','cart_add','checkout','wa','tg','special'];
+ const table=el('table',{},el('tr',{},head.map(h=>el('th',{},h))),rows.slice(0,14).map(r=>el('tr',{},el('td',{},r.day),keys.map(x=>el('td',{},r[x])))));
+ const src=Object.entries(s.j.src||{}).sort((a,b)=>b[1]-a[1]).slice(0,10);
+ const msg=el('p',{class:'msg',role:'status'}),cf=el('form',{onsubmit:async e=>{e.preventDefault();const d=new FormData(cf);const r=await api('/api/admin/codes','POST',{code:d.get('code'),percent:d.get('percent'),max:d.get('max')||0,exp:d.get('exp')||''});msg.textContent=r.j.ok?'Code enregistré.':(r.j.msg||'Valeurs invalides');if(r.j.ok)dash()}},
+  el('input',{name:'code',placeholder:'code (ex. bienvenue)',required:'',maxlength:'30'}),el('input',{name:'percent',type:'number',min:'1',max:'50',placeholder:'% (1-50)',required:''}),el('input',{name:'max',type:'number',min:'0',placeholder:'usages max (0 = illimité)'}),el('input',{name:'exp',type:'date',title:'Expire le'}),el('button',{type:'submit'},'Créer le code'));
+ const list=(c.j.list||[]);
+ const ct=el('table',{},el('tr',{},['Code','Réduction','Usages max','Expire','Clics de contact avec ce code',''].map(h=>el('th',{},h))),list.map(x=>el('tr',{},el('td',{},x.code.toUpperCase()),el('td',{},x.percent+' %'),el('td',{},x.max||'illimité'),el('td',{},x.exp||'–'),el('td',{},x.uses),el('td',{},el('button',{class:'g',onclick:async()=>{if(confirm('Supprimer '+x.code+' ?')){await api('/api/admin/codes','DELETE',{code:x.code});dash()}}},'Supprimer')))));
+ const bad=(s.j.bad||[]);
+ A.replaceChildren(top,cards,el('h2',{},'14 derniers jours'),el('div',{class:'wrap'},table),el('h2',{},'Sources de trafic (30 jours)'),el('div',{class:'box'},src.length?src.map(x=>el('div',{},x[0]+' : '+x[1])):'Pas encore de données. Ajoute ?utm_source=instagram à tes liens.'),el('h2',{},'Codes de réduction'),cf,msg,el('div',{class:'wrap'},ct),el('h2',{},'Tentatives de connexion refusées'),el('div',{class:'box'},bad.length?bad.map(x=>el('div',{},new Date(x.t).toLocaleString('fr-FR')+' · '+x.ih+' · '+x.em)):'Aucune.'))}
+api('/api/admin/me').then(r=>r.s===200?dash():login()).catch(()=>login());
+</script></body></html>
